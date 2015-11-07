@@ -1,0 +1,7 @@
+hardstatus alwayslastline "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H: %l%{..Y} %m/%d %c"
+vbell off
+encoding UTF-8
+defencoding UTF-8
+defutf8 on
+startup_message off
+shell -$SHELL

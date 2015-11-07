@@ -1,0 +1,25 @@
+set imap_user=""
+set imap_pass=""
+
+set spoolfile={mail.pobox.com/ssl}
+set folder={mail.pobox.com/ssl}
+mailboxes {mail.pobox.com/ssl}
+
+set signature=~/.signature
+
+source ~/.muttrc.global
+
+set realname="Bryan Horstmann-Allen"
+
+unmy_hdr From:
+unmy_hdr Bcc:
+unmy_hdr Reply-to:
+
+# Write headers
+my_hdr From: Bryan Horstmann-Allen <bdha@mirrorshades.net>
+my_hdr Reply-to: bdha@mirrorshades.net
+
+set edit_hdrs
+
+fcc-hook $ "=INBOX.Sent"
+set fcc_attach

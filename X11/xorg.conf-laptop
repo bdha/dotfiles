@@ -1,0 +1,149 @@
+Section "ServerLayout"
+	Identifier     "X.org Configured"
+	Screen      0  "Screen0" 0 0
+	Screen      1  "Screen1" Above "Screen0"
+	InputDevice    "Mouse0" "CorePointer"
+	InputDevice    "Keyboard0" "CoreKeyboard"
+	#Option		   "AutoAddDevices" "Off"
+	Option "BlankTime" "0"
+	Option "DPMS" "true"
+	Option "StandbyTime" "0"
+	Option "SuspendTime" "0"
+	Option "OffTime" "0"
+EndSection
+
+Section "Files"
+	ModulePath   "/usr/local/lib/xorg/modules"
+    FontPath        "/usr/local/lib/X11/fonts/100dpi/"
+    FontPath        "/usr/local/lib/X11/fonts/75dpi/"
+    FontPath        "/usr/local/lib/X11/fonts/Caladea/"
+    FontPath        "/usr/local/lib/X11/fonts/Carlito/"
+    FontPath        "/usr/local/lib/X11/fonts/CharisSIL/"
+    FontPath        "/usr/local/lib/X11/fonts/DoulosSIL/"
+    FontPath        "/usr/local/lib/X11/fonts/Droid/"
+    FontPath        "/usr/local/lib/X11/fonts/GentiumBasic/"
+    FontPath        "/usr/local/lib/X11/fonts/GentiumPlus/"
+    FontPath        "/usr/local/lib/X11/fonts/Hana/"
+    FontPath        "/usr/local/lib/X11/fonts/Khmer/"
+    FontPath        "/usr/local/lib/X11/fonts/Liberation/"
+    FontPath        "/usr/local/lib/X11/fonts/LinLibertineG/"
+    FontPath        "/usr/local/lib/X11/fonts/Myanmar/"
+    FontPath        "/usr/local/lib/X11/fonts/OTF/"
+    FontPath        "/usr/local/lib/X11/fonts/PataType/"
+    FontPath        "/usr/local/lib/X11/fonts/TTF/"
+    FontPath        "/usr/local/lib/X11/fonts/TrueType/"
+    FontPath        "/usr/local/lib/X11/fonts/Type1/"
+    FontPath        "/usr/local/lib/X11/fonts/alee-ttf/"
+    FontPath        "/usr/local/lib/X11/fonts/anonymous-pro/"
+    FontPath        "/usr/local/lib/X11/fonts/artwiz-aleczapka-en/"
+    FontPath        "/usr/local/lib/X11/fonts/bitstream-vera/"
+    FontPath        "/usr/local/lib/X11/fonts/cyrillic/"
+    FontPath        "/usr/local/lib/X11/fonts/dejavu/"
+    FontPath        "/usr/local/lib/X11/fonts/dockapp/"
+    FontPath        "/usr/local/lib/X11/fonts/ecofont/"
+    FontPath        "/usr/local/lib/X11/fonts/encodings/"
+    FontPath        "/usr/local/lib/X11/fonts/fonts-indic/"
+    FontPath        "/usr/local/lib/X11/fonts/fonts-te/"
+    FontPath        "/usr/local/lib/X11/fonts/hebrew/"
+    FontPath        "/usr/local/lib/X11/fonts/junicode/"
+    FontPath        "/usr/local/lib/X11/fonts/koi8-u-gemini/"
+    FontPath        "/usr/local/lib/X11/fonts/local/"
+    FontPath        "/usr/local/lib/X11/fonts/misc/"
+    FontPath        "/usr/local/lib/X11/fonts/misc/:unscaled"
+    FontPath        "/usr/local/lib/X11/fonts/profont/"
+    FontPath        "/usr/local/lib/X11/fonts/proggy_fonts-ttf/"
+    FontPath        "/usr/local/lib/X11/fonts/stix/"
+    FontPath        "/usr/local/lib/X11/fonts/stracke/"
+    FontPath        "/usr/local/lib/X11/fonts/terminus-font/"
+    FontPath        "/usr/local/lib/X11/fonts/ubuntu-font/"
+    FontPath        "/usr/local/lib/X11/fonts/unfonts-core/"
+    FontPath        "/usr/local/lib/X11/fonts/unfonts-extra/"
+    FontPath        "/usr/local/lib/X11/fonts/webfonts/"
+    FontPath        "/usr/local/share/fonts/OTF/"
+    FontPath        "/usr/local/share/fonts/TTF/"
+    FontPath        "/usr/local/share/fonts/TrueType/"
+    FontPath        "/usr/local/share/fonts/amsfonts/"
+    FontPath        "/usr/local/share/fonts/cantarell/"
+    FontPath        "/usr/local/share/fonts/cm-super/"
+    FontPath        "/usr/local/share/fonts/shinonome/"
+    FontPath        "/usr/local/share/fonts/std.ja_JP/"
+    FontPath        "/usr/local/share/fonts/std.zh_CN/"
+    FontPath        "/usr/local/share/font-ipa/"
+    FontPath        "/usr/local/share/font-ipa-uigothic/"
+    FontPath        "/usr/local/share/font-ipaex/"
+    FontPath        "/usr/local/share/font-kochi/"
+    FontPath        "/usr/local/share/font-migmix/"
+    FontPath        "/usr/local/share/font-migu/"
+    FontPath        "/usr/local/share/font-mona-ipa/"
+    FontPath        "/usr/local/share/font-motoya-al/"
+    FontPath        "/usr/local/share/font-sazanami/"
+    FontPath        "/usr/local/share/font-shinonome/"
+    FontPath        "/usr/local/share/font-takao/"
+    FontPath        "/usr/local/share/font-vlgothic/"
+EndSection
+
+Section "Module"
+	Load  "extmod"
+	Load  "record"
+	Load  "dbe"
+	Load  "glx"
+	Load  "dri"
+	Load  "dri2"
+	Load  "freetype" # added manually
+EndSection
+
+Section "InputDevice"
+	Identifier  "Keyboard0"
+	Driver      "kbd"
+EndSection
+
+Section "InputDevice"
+	Identifier  "Mouse0"
+	Driver      "mouse"
+	Option	    "Protocol" "auto"
+	Option	    "Device" "/dev/sysmouse"
+	Option	    "ZAxisMapping" "4 5 6 7"
+EndSection
+
+Section "Monitor"
+	Identifier   "Laptop Monitor"
+	Option "Monitor-LVDS1" "Laptop Monitor"
+EndSection
+
+Section "Monitor"
+	Identifier   "External Monitor"
+	Option "Monitor-VGA1" "External Monitor"
+EndSection
+
+Section "Device"
+	Identifier  "Card0"
+	Driver      "intel"
+
+	BusID       "PCI:0:2:0"
+EndSection
+
+Section "Device"
+	Identifier  "Card1"
+	Driver      "intel"
+	BusID       "PCI:0:2:0"
+EndSection
+
+Section "Screen"
+	Identifier "Screen0"
+	Device     "Card0"
+	Monitor    "Laptop Monitor"
+	SubSection "Display"
+		Viewport   0 0
+		Depth     24
+	EndSubSection
+EndSection
+
+Section "Screen"
+	Identifier "Screen1"
+	Device     "Card1"
+	Monitor    "External Monitor"
+	SubSection "Display"
+		Viewport   0 0
+		Depth     24
+	EndSubSection
+EndSection

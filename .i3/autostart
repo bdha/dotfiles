@@ -1,0 +1,9 @@
+#!/usr/local/bin/bash
+
+xsetroot -solid '#101010' &
+
+# BEEP BAD
+xset b off
+
+## DPMS monitor setting (standby -> suspend -> off) (seconds)
+xset dpms 300 600 900 &

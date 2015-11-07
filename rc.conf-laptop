@@ -1,0 +1,23 @@
+hostname="titan"
+
+wlans_iwn0="wlan0"
+ifconfig_wlan0="-ht WPA DHCP"
+
+sshd_enable="YES"
+
+moused_enable="YES"
+
+ntpd_enable="YES"
+ntpd_flags="-g"
+
+powerd_enable="YES"
+powerd_flags="-a hiadaptive -b adaptive"
+
+dumpdev="AUTO"
+pf_enable="YES"
+
+hald_enable="YES"
+dbus_enable="YES"
+
+smartd_enable="YES"
+slim_enable="YES"
