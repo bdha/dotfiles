@@ -1,14 +1,9 @@
-set mailcap_path="~/.mutt/mailcap"
-
-auto_view text/html
-alternative_order text/plain text/enriched text/html
-
 set envelope_from
 set abort_nosubject=ask-no
 unset askcc
 set sig_dashes
 set indent_string="> "
-set attribution="+------------------------------------------------------------------------------\n| On %d, %n wrote:\n| "
+set attribution="> On %d, %n wrote:\n> "
 set date_format="%F %T"
 set forward_format="Fwd: %s"
 set forward_quote
@@ -65,6 +60,8 @@ set copy=yes                    # always save a copy of outgoing messages
 set noconfirmappend
 set confirmcreate
 set auto_tag            # always operate on tagged messages
+set sort = threads
+set sort_aux = mailbox-order
 unset mark_old
 set reverse_alias
 set reverse_name
@@ -72,7 +69,7 @@ unset beep_new
 set fast_reply
 #set folder = ~/Mail
 set ispell = /usr/local/bin/ispell
-set mail_check = 900
+set mail_check = 5
 set history = 100
 unset metoo
 set reply_to = no
@@ -116,10 +113,10 @@ set pgp_good_sign="^gpg: Good signature from"
 
 set     postponed="~/Mail/postponed"
 set     autoedit
-unset   narrow_tree
+unset  narrow_tree
 set     auto_tag
-set     pager_context=4
-set     pager_index_lines=10
+set    pager_context=4
+set pager_index_lines=10
 unset   menu_scroll
 unset   confirmappend
 set     confirmcreate
@@ -151,7 +148,7 @@ set     to_chars="+ tcf
 ## =================
 color attachment white     magenta
 color body      cyan       default  "ftp://[^ ]*"
-color body      brightgreen default "[[:alnum:]][-+.#_[:alnum:]]*@[-+.[:alnum:]]*[[:alnum:]]"
+color body     brightgreen default "[[:alnum:]][-+.#_[:alnum:]]*@[-+.[:alnum:]]*[[:alnum:]]"
 color body      cyan       default  "<URL:[^ ]*>"
 color bold      green      default
 color error     red        default
@@ -185,6 +182,7 @@ color message   white      blue
 
 color normal    white     default  # pager body
 
+#  Coloring quoted text - coloring the first 7 levels:
 color quoted    cyan      default
 color quoted1   yellow    default
 color quoted2   red       default
@@ -206,12 +204,20 @@ color body      brightblue     default  "(http|ftp|news|telnet|finger)://[^ ]*"
 color index     yellow         default  ~N      # New
 color index     yellow         default  ~O      # Old
 color index     brightgreen    default  '~p'    # mail to myself
-color index     brightcyan     default  '~P'    # mail from myself
+color index     brightcyan    default  '~P'    # mail from myself
 color index     magenta        default  ~F      # Flagged
 color index     blue           default  ~T      # Tagged
 color index     red            default  ~D      # Deleted
 
+
+
+
+# Added 11-17 from http://www.dotfiles.com/files/27/315_muttrc.html
 set pager_stop=yes
+# When set, the internal-pager will not move to the next message when
+# you are at the end of a message and invoke the next-page function.:q
+
+# Header stuff
 
 ignore *
 

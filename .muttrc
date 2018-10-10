@@ -1,25 +1,45 @@
+set ssl_starttls=yes
+set ssl_force_tls=yes
+
 set imap_user=""
 set imap_pass=""
+set folder=imaps://imap.gmail.com
+set imap_authenticators="login"
 
-set spoolfile={mail.pobox.com/ssl}
-set folder={mail.pobox.com/ssl}
-mailboxes {mail.pobox.com/ssl}
+set imap_keepalive=60
 
-set signature=~/.signature
+set spoolfile = +INBOX
+set record = "+[Gmail]/Sent Mail"
+set postponed = "+[Gmail]/Drafts"
+
+set mbox="imaps://imap.gmail.com/[Gmail]/All Mail"
+
+set smtp_url = "smtp://$imap_user@smtp.gmail.com:587/"
+set smtp_pass = ""
+#set smtp_authenticators="plain"
+set smtp_authenticators="login"
+
+set signature="/Users/bdha/.signature"
+
+set mailcap_path="~/.mutt/mailcap"
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
 
 source ~/.muttrc.global
 
 set realname="Bryan Horstmann-Allen"
-
+# Clear all existing headers
 unmy_hdr From:
 unmy_hdr Bcc:
 unmy_hdr Reply-to:
 
 # Write headers
-my_hdr From: Bryan Horstmann-Allen <bdha@mirrorshades.net>
-my_hdr Reply-to: bdha@mirrorshades.net
+my_hdr From: XXX <XXX@XXX>
+my_hdr Reply-to: XXX
+
+#fcc-hook ~A {localhost:1993}"Sent Items"
 
 set edit_hdrs
-
-fcc-hook $ "=INBOX.Sent"
-set fcc_attach
+set copy=yes
+set fcc_attach          # Include attachments in copies of sent messages?
