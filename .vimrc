@@ -8,6 +8,8 @@ set background=dark
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 highlight ColorColumn ctermbg=gray
 
+let perl_sub_signatures = 1
+
 set showbreak=↪\
 "set listchars=tab:▸\ ,eol:¬,trail:~,extends:>,precedes:<,nbsp:•
 set list lcs=tab:»·,eol:¬,trail:·
